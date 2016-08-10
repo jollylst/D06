@@ -13,12 +13,35 @@
 ##############################################################################
 # Imports
 
+def has_no_e(word):
+	words = list(word)
+	for i in words:
+		if i == 'e' or i == 'E':
+			return False
+	return True
+
+
+def print_no_e(file_name):
+	fp = open(file_name, 'r')
+	words = fp.readlines()
+	word_count = 0
+	count = 0
+	print("The following words have no 'e':")
+	for item in words:
+		word = item.strip()
+		word_count += 1
+		if ('e' not in word) and ('E' not in word):
+			print(word)
+			count += 1
+	print("Percentage of the words in the list that have no 'e': " + "{:.2%}".format(count/word_count))
+	fp.close()	
 # Body
 
 
 ##############################################################################
 def main():
-    pass  # Call your function(s) here.
+    print(has_no_e('world'))
+    print_no_e('words.txt') # Call your function(s) here.
 
 if __name__ == '__main__':
     main()

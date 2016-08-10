@@ -10,18 +10,36 @@
 # alfalfa?"
 #   - write function to assist you
 #   - type favorite sentence(s) here:
-#       1:
-#       2:
-#       3:
+#       1: coffee coca cola
+#       2: call alchohol
+#       3: oh aloe cool
 ##############################################################################
 # Imports
 
 # Body
+def uses_only(word, string):
+	for char in word:
+		if char not in string:
+			return False
+	return True
 
+
+def find_using_only():
+	fp = open('words.txt', 'r')
+	words = fp.readlines()
+	uses_only_count = 0
+	uses_only_string = input("The acceptable letters: \n")
+	for item in words:
+		word = item.strip()
+		if uses_only(word, uses_only_string):
+			print(word)
+			uses_only_count += 1
+	print(uses_only_count)
+	fp.close()
 
 ##############################################################################
 def main():
-    pass  # Call your function(s) here.
-
+    print(uses_only('examination', 'acefhlo')) # Call your function(s) here.
+    find_using_only()
 if __name__ == '__main__':
     main()
